@@ -1,0 +1,20 @@
+# Size of the cluster
+$instances = 3
+
+# Base name of the VM
+# Example: "zk-01", "zk-02", "zk-${instances}"
+$zookeeper_instance_name_prefix="zk"
+$kafka_instance_name_prefix="kafka"
+
+# VM
+$zookeeper_vm_memory = 1024
+$zookeeper_vm_cpus = 1
+$zookeeper_vm_cpuexecutioncap = 50
+$kafka_vm_memory = 1536
+$kafka_vm_cpus = 1
+$kafka_vm_cpuexecutioncap = 50
+
+# Port forwarding from guest(s) to host machine
+# Format: { 80 => 8080, ... }
+$zookeeper_forwarded_ports = {}
+$kafka_forwarded_ports = {}
