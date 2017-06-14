@@ -6,11 +6,15 @@ If you need clustered Kafka setup without ZooKeeper, check out this [repository]
 
 Getting Started
 ===============
-Install [VirtualBox][virtualbox] (> 5.1.22), [Vagrant][vagrant] (> 1.9.5), clone this repository and execute `vagrant up`.
+To quickly get started:
+- install [VirtualBox][virtualbox] (> 5.1.22);
+- install [Vagrant][vagrant] (> 1.9.5);
+- clone this repository;
+- execute `vagrant up`.
 
 Default Setup
 =============
-By default, **3** ZooKeeper instances will be created. Instance details are as follow:
+By default, 3 ZooKeeper instances will be created. Instance details are as follow:
 
 | Name | IP | RAM (MB) | CPUs | CPU Cap (%) |
 | :---: | :---: | :---: | :---: | :---: |
@@ -18,7 +22,7 @@ By default, **3** ZooKeeper instances will be created. Instance details are as f
 | zk-02 | 10.10.10.12 | 1024 | 1 | 50 |
 | zk-03 | 10.10.10.13 | 1024 | 1 | 50 |
 
-Also, **3** Kafka brokers will be created. Broker details are as follow:
+Also, 3 Kafka brokers will be created. Broker details are as follow:
 
 | Name | IP | RAM (MB) | CPUs | CPU Cap (%) |
 | :---: | :---: | :---: | :---: | :---: |
@@ -28,7 +32,7 @@ Also, **3** Kafka brokers will be created. Broker details are as follow:
 
 Custom Setup
 ============
-You can override default configuration with your own `config.rb` file. See `config.rb.sample` form more information.
+You can override default configuration with your own `config.rb` file. See `config.rb.sample` for more information.
 
 Default configuration assumes maximum number of 3 instances. If you want to create more instances, you will need to manually add new `server.n` entry to `zookeeper.properties` configuration file for each new ZooKeeper instance, where `n` is the instance number, and manually create `server.properties` configuration file for each new Kafka instance.
 
