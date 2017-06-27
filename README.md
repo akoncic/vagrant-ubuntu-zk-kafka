@@ -34,8 +34,6 @@ Custom Setup
 ============
 You can override default configuration with your own `config.rb` file. See `config.rb.sample` for more information.
 
-Default configuration assumes maximum number of 3 instances. If you want to create more instances, you will need to manually add new `server.n` entry to `zookeeper.properties` configuration file for each new ZooKeeper instance, where `n` is the instance number, and manually create `server.properties` configuration file for each new Kafka instance.
-
 Scripts
 =======
 Some Kafka scripts have been included for convenience. Details are as follow:

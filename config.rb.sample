@@ -2,9 +2,9 @@
 $instances = 3
 
 # Base name of the VM
-# Example: "zk-01", "zk-02", "zk-${instances}"
-$zookeeper_instance_name_prefix="zk"
-$kafka_instance_name_prefix="kafka"
+# Example: "prefix-01", "prefix-02", "prefix-${instances}"
+$zookeeper_instance_name_prefix = "zk"
+$kafka_instance_name_prefix = "kafka"
 
 # VM
 $zookeeper_vm_memory = 1024

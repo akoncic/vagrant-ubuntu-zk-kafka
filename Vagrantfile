@@ -8,13 +8,13 @@ CONFIG = File.join(File.dirname(__FILE__), "config.rb")
 # config.rb defaults
 $instances = 3
 
-$zookeeper_instance_name_prefix="zk"
+$zookeeper_instance_name_prefix = "zk"
 $zookeeper_vm_memory = 1024
 $zookeeper_vm_cpus = 1
 $zookeeper_vm_cpuexecutioncap = 50
 $zookeeper_forwarded_ports = {}
 
-$kafka_instance_name_prefix="kafka"
+$kafka_instance_name_prefix = "kafka"
 $kafka_vm_memory = 1536
 $kafka_vm_cpus = 1
 $kafka_vm_cpuexecutioncap = 50
@@ -31,7 +31,7 @@ Vagrant.configure("2") do |config|
   #config.ssh.forward_agent = true
   #config.ssh.insert_key = false
 
-  config.vm.provision "shell", path: "sh/bootstrap.sh"
+  config.vm.provision "shell", path: "provision/bootstrap.sh"
 
   # ZooKeeper
   (1..$instances).each do |i|
@@ -45,7 +45,7 @@ Vagrant.configure("2") do |config|
         config.vm.network "forwarded_port", guest: guest, host: host, auto_correct: true
       end
 
-      config.vm.provision "shell", path: "sh/zookeeper.sh", args:"#{i}"
+      config.vm.provision "shell", path: "provision/zookeeper.sh", args: "#{i}"
 
       config.vm.provider "virtualbox" do |vm|
         vm.memory = $zookeeper_vm_memory
@@ -69,7 +69,7 @@ Vagrant.configure("2") do |config|
         config.vm.network "forwarded_port", guest: guest, host: host, auto_correct: true
       end
 
-      config.vm.provision "shell", path: "sh/kafka.sh", args:"#{i}"
+      config.vm.provision "shell", path: "provision/kafka.sh", :args => ["#{i}", "#{$instances}"]
 
       config.vm.provider "virtualbox" do |vm|
         vm.memory = $kafka_vm_memory
